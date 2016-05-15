@@ -1,13 +1,19 @@
 package com.example.max.lab3;
 
 import android.app.Activity;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Icon;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -19,8 +25,13 @@ public class SensorsAndContext extends Activity implements SensorEventListener, 
     AccDataView accDataView;
     SeekBar accSeekBar;
     TextView textView;
+    FftDataView fftDataView;
+    SeekBar fftSeekBar;
+
+
 
     String movementState = "";
+    int id = 0;
 
 
     @Override
@@ -37,6 +48,11 @@ public class SensorsAndContext extends Activity implements SensorEventListener, 
 
         textView = (TextView) findViewById(R.id.textview);
 
+        fftDataView = (FftDataView) findViewById(R.id.fftView);
+        fftDataView.setBackgroundColor(Color.GRAY);
+
+        fftSeekBar = (SeekBar) findViewById(R.id.fftSeekBar);
+        fftSeekBar.setOnSeekBarChangeListener(this);
 
 
         // read Sensor
@@ -44,8 +60,6 @@ public class SensorsAndContext extends Activity implements SensorEventListener, 
         sensorManager.registerListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),100000);
 
         accSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-
-
 
 
     }
@@ -65,6 +79,16 @@ public class SensorsAndContext extends Activity implements SensorEventListener, 
             SensorData data = new SensorData(event.values[0], event.values[1], event.values[2]);
             this.accDataView.addData(data);
             this.accDataView.invalidate();
+
+            this.fftDataView.addData(data);
+            this.fftDataView.invalidate();
+
+            if (!movementState.equals(fftDataView.showActualActivity(textView)) &&
+                    !fftDataView.showActualActivity(textView).equals("")){
+                movementState = fftDataView.showActualActivity(textView);
+
+
+            }
         }
     }
 
@@ -84,6 +108,14 @@ public class SensorsAndContext extends Activity implements SensorEventListener, 
             // Other stuff
 
             sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), value * 1000);
+        } else if (seekBar.getId() == fftSeekBar.getId()){
+            int value = seekBar.getProgress()*4;
+            System.out.println("Size: " + value);
+
+            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) fftDataView .getLayoutParams();
+            params.height = value;
+            fftDataView.setLayoutParams(params);
+
         }
     }
 
