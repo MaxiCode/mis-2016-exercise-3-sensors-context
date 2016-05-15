@@ -27,10 +27,10 @@ public class AccDataView extends SensorView{
                 SensorData data1 = this.sensorDataset.get(this.sensorDataset.size() - i);
                 SensorData data2 = this.sensorDataset.get(this.sensorDataset.size() - i - 1 );
 
-                drawLine(i, data1.getX(), data2.getX(), canvas, Color.RED);
-                drawLine(i, data1.getY(), data2.getY(), canvas, Color.GREEN);
-                drawLine(i, data1.getZ(), data2.getZ(), canvas, Color.BLUE);
-                drawLine(i, calculateMaginitude(data1), calculateMaginitude(data2),
+                drawLine(i, data1.getX() + 30, data2.getX() + 30, canvas, Color.RED);
+                drawLine(i, data1.getY() + 10, data2.getY() + 10, canvas, Color.GREEN);
+                drawLine(i, data1.getZ() - 10, data2.getZ() - 10, canvas, Color.BLUE);
+                drawLine(i, calculateMaginitude(data1) - 30, calculateMaginitude(data2) - 30,
                         canvas, Color.WHITE);
             }
         } else if (this.sensorDataset.size() < sumPlots && this.sensorDataset.size() > 2) {
@@ -38,10 +38,10 @@ public class AccDataView extends SensorView{
                 SensorData data1 = this.sensorDataset.get(this.sensorDataset.size() - i);
                 SensorData data2 = this.sensorDataset.get(this.sensorDataset.size() - i - 1);
 
-                drawLine(i, data1.getX(), data2.getX(), canvas, Color.RED);
-                drawLine(i, data1.getY(), data2.getY(), canvas, Color.GREEN);
-                drawLine(i, data1.getZ(), data2.getZ(), canvas, Color.BLUE);
-                drawLine(i, calculateMaginitude(data1), calculateMaginitude(data2),
+                drawLine(i, data1.getX() + 30, data2.getX() + 30, canvas, Color.RED);
+                drawLine(i, data1.getY() + 10, data2.getY() + 10, canvas, Color.GREEN);
+                drawLine(i, data1.getZ() - 10, data2.getZ() - 10, canvas, Color.BLUE);
+                drawLine(i, calculateMaginitude(data1) - 30, calculateMaginitude(data2) - 30,
                         canvas, Color.WHITE);
             }
         }

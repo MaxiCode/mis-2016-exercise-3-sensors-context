@@ -9,6 +9,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 public class SensorsAndContext extends Activity implements SensorEventListener, SeekBar.OnSeekBarChangeListener {
 
@@ -17,6 +18,7 @@ public class SensorsAndContext extends Activity implements SensorEventListener, 
     Sensor accSensor;
     AccDataView accDataView;
     SeekBar accSeekBar;
+    TextView textView;
 
     String movementState = "";
 
@@ -26,11 +28,15 @@ public class SensorsAndContext extends Activity implements SensorEventListener, 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sensors_and_context);
 
+        // connect graphical elements
         accDataView = (AccDataView) findViewById(R.id.accView);
-        accDataView.setBackgroundColor(Color.BLACK);
+        accDataView.setBackgroundColor(Color.GRAY);
 
-        accSeekBar = (SeekBar) findViewById(R.id.seekBar);
+        accSeekBar = (SeekBar) findViewById(R.id.accSeekBar);
         accSeekBar.setOnSeekBarChangeListener(this);
+
+        textView = (TextView) findViewById(R.id.textview);
+
 
 
         // read Sensor
@@ -52,10 +58,14 @@ public class SensorsAndContext extends Activity implements SensorEventListener, 
     @Override
     public final void onSensorChanged(SensorEvent event) {
         // works :)
-        if(event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            System.out.println("Values x: " + event.values[0] + " y: " + event.values[1] + " z: " + event.values[2]);
+        //if(event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+        //    System.out.println("Values x: " + event.values[0] + " y: " + event.values[1] + " z: " + event.values[2]);
+        //}
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER){
+            SensorData data = new SensorData(event.values[0], event.values[1], event.values[2]);
+            this.accDataView.addData(data);
+            this.accDataView.invalidate();
         }
-
     }
 
     @Override
