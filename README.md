@@ -4,20 +4,18 @@
 - Max Weber (110068)
 - Muhammad Raisul Islam (113993)
 
-## Views:
-Upper View:
+## Upper View:
 - plots the measured accelerometer data graph
 - red = X
 - green = Y
 - blue = Z
 - white = magnitude
-Lower View:
+## Lower View:
 - yellow = the FFT of the magnitude
 
-## SeekBars:
-Upper SeekBar:
+## Upper SeekBar:
 - modify the sample rate (0 - 100.000)
-Lower SeekBar:
+## Lower SeekBar:
 - modify the FFT window size (0*2dp - 100*2dp)
 
 ## Movement Classification
