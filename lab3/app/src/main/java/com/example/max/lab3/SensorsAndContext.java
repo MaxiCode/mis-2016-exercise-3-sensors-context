@@ -12,7 +12,8 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -28,7 +29,8 @@ public class SensorsAndContext extends Activity implements SensorEventListener, 
     FftDataView fftDataView;
     SeekBar fftSeekBar;
 
-
+    NotificationCompat.Builder notifyBuilder;
+    NotificationManager notifyManager;
 
     String movementState = "";
     int id = 0;
@@ -61,7 +63,21 @@ public class SensorsAndContext extends Activity implements SensorEventListener, 
 
         accSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
+        //notification stuff
+        notifyBuilder = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.running)
+                .setContentTitle("Sensor Excercise")
+                .setContentText("test");
+        Intent myIntent = new Intent(this,SensorsAndContext.class);
 
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addParentStack(SensorsAndContext.class);
+        stackBuilder.addNextIntent(myIntent);
+        PendingIntent myPendingIntent
+                = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+        notifyBuilder.setContentIntent(myPendingIntent);
+        notifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notifyManager.notify(id,notifyBuilder.build());
     }
 
     @Override
@@ -87,7 +103,12 @@ public class SensorsAndContext extends Activity implements SensorEventListener, 
                     !fftDataView.showActualActivity(textView).equals("")){
                 movementState = fftDataView.showActualActivity(textView);
 
-
+                notifyManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                notifyBuilder = new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.running)
+                        .setContentTitle("Sensor Excercise")
+                        .setContentText(movementState);
+                notifyManager.notify(id, notifyBuilder.build());
             }
         }
     }
