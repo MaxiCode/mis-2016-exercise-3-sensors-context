@@ -10,11 +10,13 @@
 - green = Y
 - blue = Z
 - white = magnitude
+- 
 ## Lower View:
 - yellow = the FFT of the magnitude
 
 ## Upper SeekBar:
 - modify the sample rate (0 - 100.000)
+- 
 ## Lower SeekBar:
 - modify the FFT window size (0*2dp - 100*2dp)
 
