@@ -1,0 +1,12 @@
+CHANGED,/home/max/mis/mis-2016-exercise-3-sensors-context/lab3/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/max/lab3/R$id$override.class
+CHANGED,/home/max/mis/mis-2016-exercise-3-sensors-context/lab3/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/max/lab3/R$style$override.class
+CHANGED,/home/max/mis/mis-2016-exercise-3-sensors-context/lab3/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class
+CHANGED,/home/max/mis/mis-2016-exercise-3-sensors-context/lab3/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/max/lab3/R$override.class
+CHANGED,/home/max/mis/mis-2016-exercise-3-sensors-context/lab3/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/max/lab3/R$mipmap$override.class
+CHANGED,/home/max/mis/mis-2016-exercise-3-sensors-context/lab3/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/max/lab3/R$string$override.class
+CHANGED,/home/max/mis/mis-2016-exercise-3-sensors-context/lab3/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/max/lab3/R$integer$override.class
+CHANGED,/home/max/mis/mis-2016-exercise-3-sensors-context/lab3/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/android/support/v7/appcompat/R$drawable$override.class
+CHANGED,/home/max/mis/mis-2016-exercise-3-sensors-context/lab3/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/max/lab3/SensorsAndContext$override.class
+CHANGED,/home/max/mis/mis-2016-exercise-3-sensors-context/lab3/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/max/lab3/R$drawable$override.class
+CHANGED,/home/max/mis/mis-2016-exercise-3-sensors-context/lab3/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/max/lab3/R$layout$override.class
+CHANGED,/home/max/mis/mis-2016-exercise-3-sensors-context/lab3/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/example/max/lab3/R$styleable$override.class
